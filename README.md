@@ -1,4 +1,4 @@
-# Customer Order Management System
+# 🗂️ Customer Order Management System 🗂️
 
 ## Project Description ⤵︎
 
@@ -15,18 +15,18 @@ This project was developed following specific technical requirements such as the
 
 Before running the program, make sure you have the following requirements:
 
--Python 3.x installed
+  - Python 3.x installed
 
--Operating System: Windows, macOS, or Linux
+  - Operating System: Windows, macOS, or Linux
 
--A terminal or command prompt
+  - A terminal or command prompt
 ## Installing ⤵︎
 
 Follow these steps to install and prepare the project:
 
-Download or clone the repository.
+  1. Download or clone the repository.
 
-git clone https://github.com/valejo0310-svg/Customer_Order_Management-_System.git
+      - Git clone: https://github.com/valejo0310-svg/Customer_Order_Management-_System.git
 
 Open the project folder.
 
