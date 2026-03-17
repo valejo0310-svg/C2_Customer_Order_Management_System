@@ -6,7 +6,7 @@ This project consists of the development of a Customer Order Management System i
 
 The system allows users to enter customer information such as ID, name, and email, which is then processed through a registration function imported from another module. The program follows a modular structure where the main file controls the program execution and calls external functions responsible for processing data.
 
-## Project Structure
+## Project Structure ⤵︎
 
 This project was developed following specific technical requirements such as the use of functions, dictionaries, and tuples, while maintaining code modularity and documentation in English.
 
