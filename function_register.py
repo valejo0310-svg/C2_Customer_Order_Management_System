@@ -2,6 +2,33 @@ def function_register(accumulated_tuple):
     print("PRODUCT REGISTRATION")
     product_counter = 1 
     continue_ciclo = "yes"
+    products = (
+        {
+            "ID" : "5",
+            "nombre": "leche",
+            "price" : "5000"
+        },
+        {
+            "ID" : "6",
+            "nombre": "pan",
+            "price" : "3000"
+        },
+        {
+            "ID" : "7",
+            "nombre": "queso",
+            "price" : "2500"
+        },
+        {
+            "ID" : "8",
+            "nombre": "mantequila",
+            "price" : "4000"
+        },
+        {
+            "ID" : "10",
+            "nombre": "lechuga",
+            "price" : "4500"
+        }
+    )
     
     while continue_ciclo == "yes":
         print(f"-------- Product {product_counter} --------")
