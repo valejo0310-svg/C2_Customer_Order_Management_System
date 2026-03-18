@@ -1,21 +1,31 @@
-clients = ()
-def customer_registration (clients):
+def customer_registration (accumulated_tuple):
     n = int(input("how many clients do you want to register?: "))
-
+    print ("CUSTOMER REGISTRATION")
     for i in range(n):
         print("customer", i+1)
 
-        ID = int (input("Customer's ID: "))
+        ID_valido = False #Variable 
+        while ID_valido == False:
+                try:
+                    
+                    customer_ID = int (input ("Please enter customer's ID:"))
+                    if customer_ID < 0: 
+                        print("The ID can not be negative nor a 0.")
+                    else:
+                        break  
+                except ValueError:
+                    print ("Please enter the right value.") 
+
         name = input("Customer's name: ")
         email = input("Customer's email: ")
 
-        clients = ( ID, name, email)
+        customer = {
+            "Customer's ID " :customer_ID,
+            "Customer's name " : name, 
+            "Customer's Email" : email
+        }
 
-        clients = clients + (clients,)  # agregamos a la tupla
+        accumulated_tuple = accumulated_tuple + (customer,)
 
-        print("Customer added successfully", i+1)
-        print("Customer's ID:", ID)
-        print("Customer's name:", name)
-        print("Customer's email:", email)
 
-    return clients
+    return accumulated_tuple
