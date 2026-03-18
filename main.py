@@ -1,39 +1,62 @@
 from First_registration import customer_registration #Importing the registration of the customer's function
+
+#~~~ Text Styles for console ~~~#
+
+# Basic formatting
+RESET   = "\033[0m"
+BOLD    = "\033[1m"
+DIM     = "\033[2m"
+ITALIC  = "\033[3m"
+UNDER   = "\033[4m"
+BLINK   = "\033[5m"
+INVERT  = "\033[7m"
+
+# Text colors (30-37)
+BLACK   = "\033[30m"
+RED     = "\033[31m"
+GREEN   = "\033[32m"
+YELLOW  = "\033[33m"
+BLUE    = "\033[34m"
+MAGENTA = "\033[35m"
+CYAN    = "\033[36m"
+WHITE   = "\033[37m"
+
 #Creation of the main function
 #Function used to call all the other functions on the main archive
-def main ():
-    print ("""
-    ==========================================
-      ~ welcome to the registration system ~ 
-    ==========================================
-    """.center(60)) #Welcome message to the system
-    
-    #Variable created to keep asking if there are going to be more customers added
-    continuar = "yes" 
-    #Loop created to keep asking
-    while continuar in ["y","yes","Y","YES"]: 
-        #Variables created to store all the client's data such as Id, names and emails
-        ID_valido = False #Variable 
-        while ID_valido == False:
-          try:
-              customer_ID = int (input ("Please enter customer's ID:"))
-              if customer_ID < 0: 
-                print("The ID can not be negative nor a 0.")
-              else:
-                  break  
-          except ValueError:
-                  print ("Please enter the right value.") 
-               
-        client_name = input ("\nPlease enter the customer's name: ")
-        email = input ("\nPlease enter the customer´s email: ")
-        #Creation of the variable "customer" to call the registration function
-        customer = customer_registration(customer_ID, client_name, email) 
-        #Print used to show the variable that contains the costumer's info
-        print (customer)
-        #Allows the system to ask if they want to keep adding customers
-        continuar = input ("Do yo wish to keep adding new customers? (y/n): ")
-        if continuar:
-            print (customer_registration(customer_ID, client_name, email)) #Makes the system ask again
+def main ():#Welcome message to the system
+    print (f"""{MAGENTA}{BOLD}
+╔═══════════════════════════════════════════════════════════╗{RESET}
+                {GREEN}{BOLD}🥑 RIWIMART RETAIL CHAIN 🥑{RESET}
+   {MAGENTA}🌷 Welcome to the Customer Order Management System! 🌷
+╚═══════════════════════════════════════════════════════════╝{RESET}""") #Some text formatting is used to make the welcome message more attractive
+    Option= 0
+    while Option<= 0 :#Loop created to keep asking the user when they enter a wrong option
+        try:          #Try and except created to catch the error when the user enters a non-integer value    
+            Option = int(input(f"""{MAGENTA}{BOLD}{"-"*24} MAIN MENU {"-"*25}{RESET} 
+{GREEN}1) 🤵​  Enter Costumer 
+2) 🍎  Enter Product 
+3) ​🧾​  Create Order
+4) ​🔍​  View Orders
+5) 💀​  Quit {RESET}
+{MAGENTA}{BOLD}{"="*60}{RESET}
+{GREEN}~ Please select an option:
+➤ {RESET} """)) 
+            if Option < 1 or Option > 5: #Condition created to catch the error when the user enters a number that is not on the menu
+                print(f"\n{RED}{BOLD}{'❌ ERROR: Please enter a valid number ❌':^60}{RESET}\n") 
+                Option = int(input(f"""{MAGENTA}{BOLD}{"-"*24} MAIN MENU {"-"*25}{RESET} 
+{GREEN}1) 🤵​  Enter Costumer 
+2) 🍎  Enter Product 
+3) ​🧾​  Create Order 
+4) ​🔍  View Orders
+5) 💀​  Quit {RESET}
+{MAGENTA}{BOLD}{"="*60}{RESET}
+{GREEN}~ Please select an option:
+➤ {RESET} """))     
+        except ValueError:
+            print(f"\n{RED}{BOLD}{'❌ ERROR: Please enter a valid integer ❌':^60}{RESET}\n")
+
+    #First condition created to call the function of the customer's registration when the user selects the first option of the menu.
+    #if Option == 1:
         
 
         
