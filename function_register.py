@@ -1,22 +1,34 @@
-def function_register(id_product, product_name, unit_price):
-    product = (id_product, product_name, unit_price)
-    return product
+def function_register(accumulated_tuple):
+    print("PRODUCT REGISTRATION")
+    product_counter = 1 
+    continue_ciclo = "yes"
+    
+    while continue_ciclo == "yes":
+        print(f"-------- Product {product_counter} --------")
+        try:
+            id_product = int(input("Enter the product ID: "))
+            
+            if id_product <= 0:
+                print("The ID must be a positive number.")
+                continue # Reinicia el ciclo para pedir el ID de nuevo
 
-print("="*50)
-print("Bienvenido, a la seccion de regitrar productos...")
-print("="*50)
+            product_name = input("Enter the product name: ")
+            unit_price = float(input("Enter the price of the product: "))
 
-if __name__ == "__main__":
-    n = int(input("cuantos productos desea registar: "))
-    for i in range(n):
-        print(f"-----------Producto #{i+1}-----------")
-        id_product = int(input(f"ingrese el ID del producto: "))
-        product_name = input(f"ingrese el nombre del producto:  ")
-        unit_price = float(input(f"ingrese el ID del producto:  "))
-        product = function_register(id_product, product_name, unit_price)
-        print("="*50)
-        print("¡Registros completados!")
-        print(f"producto registrado: {product} ")
-        print("="*50)
+            # Creamos el diccionario
+            product = {
+                "ID": id_product,
+                "nombre": product_name,
+                "price": unit_price
+            }
 
-function_register(id_product, product_name, unit_price)
+            # Guardamos el diccionario dentro de la tupla (concatenación)
+            accumulated_tuple = accumulated_tuple + (product,)
+            
+            product_counter += 1
+            continue_ciclo = input("Desea registrar otro producto? (yes/no): ").lower()
+
+        except ValueError:
+            print("Please enter a valid numeric value.")
+            
+    return accumulated_tuple # ¡Importante devolver la tupla actualizada!
