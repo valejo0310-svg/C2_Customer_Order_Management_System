@@ -3,7 +3,7 @@ def customer_registration (accumulated_tuple):
     "Customer's ID " : "0001",
     "Customer's name " : "Guest", 
     "Customer's Email" : "Guest0001@gmail.com"
-})
+},)
     n = int(input("how many clients do you want to register?: "))
     print ("CUSTOMER REGISTRATION")
     for i in range(n):
