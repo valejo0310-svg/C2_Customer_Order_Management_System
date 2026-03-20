@@ -1,8 +1,8 @@
 #Importing functions from other files
-from First_registration import customer_registration
+from Client_Registration import customer_registration
 from function_register import function_register
 from income_calculation import income_calculation
-from view_orders import view_orders
+from order_view import view_orders
 from final_report import final_report
 from create_order import create_order
 
