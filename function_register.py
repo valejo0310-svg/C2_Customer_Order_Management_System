@@ -1,61 +1,56 @@
-def function_register(accumulated_tuple):
-    print("PRODUCT REGISTRATION")
-    product_counter = 1 
-    continue_ciclo = "yes"
-    products = (
-        {
-            "ID" : "5",
-            "nombre": "leche",
-            "price" : "5000"
-        },
-        {
-            "ID" : "6",
-            "nombre": "pan",
-            "price" : "3000"
-        },
-        {
-            "ID" : "7",
-            "nombre": "queso",
-            "price" : "2500"
-        },
-        {
-            "ID" : "8",
-            "nombre": "mantequila",
-            "price" : "4000"
-        },
-        {
-            "ID" : "10",
-            "nombre": "lechuga",
-            "price" : "4500"
-        }
-    )
+def function_register(products_dict):
+    """
+    This function allows the user to register multiple products.
+    Products are stored in a dictionary using the product ID as the key.
+    """
+
+    print("=== PRODUCT REGISTRATION ===")
     
-    while continue_ciclo == "yes":
+    product_counter = 1
+    continue_loop = "yes"
+
+    # Loop to keep registering products
+    while continue_loop == "yes":
         print(f"-------- Product {product_counter} --------")
+        
         try:
-            id_product = int(input("Enter the product ID: "))
-            
-            if id_product <= 0:
-                print("The ID must be a positive number.")
-                continue # Reinicia el ciclo para pedir el ID de nuevo
+            # Ask for product ID
+            product_id = int(input("Enter the product ID: "))
 
+            # Validate that ID is positive
+            if product_id <= 0:
+                print("The ID must be positive.")
+                continue
+
+            # Check if ID already exists
+            if product_id in products_dict:
+                print("This product ID already exists.")
+                continue
+
+            # Ask for product name
             product_name = input("Enter the product name: ")
-            unit_price = float(input("Enter the price of the product: "))
 
-            # Creamos el diccionario
+            # Ask for product price
+            unit_price = float(input("Enter the price: "))
+
+            # Create product dictionary
             product = {
-                "ID": id_product,
-                "nombre": product_name,
+                "id": product_id,
+                "name": product_name,
                 "price": unit_price
             }
 
-            # Guardamos el diccionario dentro de la tupla (concatenación)
-            accumulated_tuple = accumulated_tuple + (product,)
-            
+            # Store product in dictionary using ID as key
+            products_dict[product_id] = product
+
+            print("Product registered successfully!\n")
+
             product_counter += 1
-            continue_ciclo = input("Desea registrar otro producto? (yes/no): ").lower()
+
+            # Ask user if they want to continue
+            continue_loop = input("Register another? (yes/no): ").lower()
 
         except ValueError:
-            print("Please enter a valid numeric value.")
-            
-    return accumulated_tuple # ¡Importante devolver la tupla actualizada!
+            print("Invalid data. Please enter correct values.\n")
+
+    return products_dict
